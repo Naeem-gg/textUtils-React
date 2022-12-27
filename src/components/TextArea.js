@@ -5,6 +5,7 @@ export const TextArea = () => {
         setText(e.target.value);
     }
     const handleClick = (e)=>{
+        document.title=text
         e.target.value ==="lcase"?setText(text.toLowerCase()):
         setText(text.toUpperCase())
     }
@@ -12,11 +13,14 @@ export const TextArea = () => {
     <>
         
     <div className="container">
-    <h1>Enrer your text here: </h1>
-    <textarea cols="100" rows="10" className="my-3" value={text} onChange={handleChange}></textarea>
+    <h1 className="mt-3">Enter your text here: </h1>
+    <textarea cols="100" rows="10" className="my-3" value={text} onChange={handleChange}></textarea><br />
+    
+
+    <button style={{marginRight:"10%"}} className="btn btn-primary" value="ucase" onClick={handleClick}>UpperCase</button>
+    <button className="btn btn-primary" value="lcase" onClick={handleClick}>LowerCase</button>
     </div>
-    <button className="btn btn-primary m-5" value="ucase" onClick={handleClick}>UpperCase</button>
-    <button className="btn btn-primary m-5" value="lcase" onClick={handleClick}>LowerCase</button>
+    
 
     </>
   )
