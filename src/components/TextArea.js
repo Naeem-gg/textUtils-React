@@ -28,15 +28,15 @@ export const TextArea = () => {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
-              'X-RapidAPI-Key': '72a429e45emsh49b16a3882fb183p12769ejsn8bd183e11758',
+              'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
               'X-RapidAPI-Host': 'jspell-checker.p.rapidapi.com'
             },
             body: `{"language":"enUS","fieldvalues":"${text}","config":{"forceUpperCase":false,"ignoreIrregularCaps":false,"ignoreFirstCaps":true,"ignoreNumbers":true,"ignoreUpper":false,"ignoreDouble":false,"ignoreWordsWithNumbers":true}}`
           };
-          
+          console.log(process.env.REACT_APP_API_KEY)
           fetch('https://jspell-checker.p.rapidapi.com/check', options)
             .then(response => response.json())
-            .then(response => console.log(response.elements[0].errors))
+            .then(response => console.log(response))
             .catch(err => console.error(err));
           break;
       default:

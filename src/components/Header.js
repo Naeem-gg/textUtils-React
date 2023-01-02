@@ -24,6 +24,16 @@ const Header = (props)=> {
            
             
           </Nav>
+          <Form>
+      <Form.Check 
+        type="switch"
+        id="custom-switch"
+        label="Enable Dark Mode"
+        className='text-light'
+        onChange={()=>{}}
+      />
+     
+    </Form>
           {search?<Form className="d-flex">
             <Form.Control
               type="search"
