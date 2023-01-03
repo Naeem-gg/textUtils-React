@@ -9,18 +9,18 @@ const Header = (props)=> {
   return (
     
 
-    <Navbar bg="dark" expand="lg">
+    <Navbar bg={props.mode?"dark":"light"} expand="lg" style={{position:"sticky",top:0}}>
       <Container fluid>
-        <Navbar.Brand href="#" className='text-white'>{props.title}</Navbar.Brand>
+        <Navbar.Brand href="#" className={props.mode?"text-light":"text-dark"}>{props.title}</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0 "
-            style={{ maxHeight: '100px' }}
+            style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link className='text-white' href="#action1">Home</Nav.Link>
-            <Nav.Link className='text-white' href="#action2">About</Nav.Link>
+            <Nav.Link className={props.mode?"text-light":"text-dark"} href="#action1">Home</Nav.Link>
+            <Nav.Link className={props.mode?"text-light":"text-dark"} href="#action2">About</Nav.Link>
            
             
           </Nav>
@@ -29,8 +29,10 @@ const Header = (props)=> {
         type="switch"
         id="custom-switch"
         label="Enable Dark Mode"
-        className='text-light'
-        onChange={()=>{}}
+        className={props.mode?"text-light":"text-dark"}
+        onChange={()=>{
+          props.setMode(p=>!p)
+        }}
       />
      
     </Form>
